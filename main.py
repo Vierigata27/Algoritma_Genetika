@@ -7,7 +7,7 @@ from sklearn.preprocessing import MinMaxScaler
 app = Flask(__name__)
 
 class RekomendasiRakitan:
-    def __init__(self, komponen_df, pop_size=100, generations=250, budget=10000000):
+    def __init__(self, komponen_df, pop_size=100, generations=1000, budget=10000000):
         self.komponen_df = komponen_df
         self.pop_size = pop_size
         self.generations = generations
