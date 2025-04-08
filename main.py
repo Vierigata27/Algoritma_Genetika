@@ -168,9 +168,9 @@ def get_rekomendasi():
 
         response = {
             "rakitan_terbaik": best_rakitan,
-            # "fitness_score": best_fitness,
-            # "generasi_terbaik": best_generation,
-            # "history": history.to_dict(orient="records")
+            "fitness_score": best_fitness,
+            "generasi_terbaik": best_generation,
+            "history": history.to_dict(orient="records")
         }
         return jsonify(response)
 
