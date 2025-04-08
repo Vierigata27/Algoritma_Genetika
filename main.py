@@ -7,7 +7,7 @@ from sklearn.preprocessing import MinMaxScaler
 app = Flask(__name__)
 
 class RekomendasiRakitan:
-    def __init__(self, komponen_df, pop_size=100, generations=1000, budget=10000000):
+    def __init__(self, komponen_df, pop_size=100, generations=250, budget=10000000):
         self.komponen_df = komponen_df
         self.pop_size = pop_size
         self.generations = generations
@@ -119,7 +119,9 @@ class RekomendasiRakitan:
                 "Performa": total_performa
             })
 
-            if best_fitness > best_overall_fitness:
+            total_harga = sum(comp['harga_komponen'] for comp in best_individual.values() if comp)
+
+            if best_fitness > best_overall_fitness and total_harga <= self.budget:
                 best_overall_fitness = best_fitness
                 best_generation = generation + 1
                 best_overall_individual = best_individual
